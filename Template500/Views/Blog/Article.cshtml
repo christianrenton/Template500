@@ -1,0 +1,26 @@
+﻿@model Template500.ViewModels.BlogEntryViewModel
+@{
+    Page.Title = Model.Title;
+    Page.Description = Model.Introduction;
+}
+
+<article>
+    <header>
+    <h1>
+        @Html.ActionLink(Model.Title, "Index")
+    </h1>
+    <time pubdate="pubdate">@Model.Date.ToShortDateString()</time>
+    </header>
+    <p>
+        @Html.Raw(HttpUtility.HtmlDecode(Model.Body))
+    </p>
+    @if (User.IsInRole("Admin") || User.IsInRole("Dev"))
+    {
+        <span class="edit-blog">@Html.ActionLink("✎ Edit", "Edit", new { id = @Model.Url })</span>
+        <br />
+        <span class="delete-blog">@Html.ActionLink("✕ Delete", "Delete", new { id = @Model.Url })</span>
+    }
+</article>
+<p>
+@Html.ActionLink("← Back to Blog", "Index")
+</p>

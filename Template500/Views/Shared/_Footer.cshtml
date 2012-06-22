@@ -1,0 +1,56 @@
+﻿<div class="panel">
+    <h2>
+        Latest Articles
+    </h2>
+    @{
+        IList<Template500.Domain.Entities.BlogEntry> blogs = ViewBag.Blogs;
+        foreach (var blog in blogs)
+        { 
+            <p>@Html.ActionLink(blog.Title, "Article", "Blog", new { id = blog.Url }, null)</p>
+        }
+    }
+</div>
+<div class="panel">
+    <h2>
+        Site Navigation</h2>
+    <p>@Html.ActionLink("About Us", "About", "Home")</p>
+    <p>@Html.ActionLink("Our Blog", "Index", "Blog")</p>
+    <p>@Html.ActionLink("Contact", "Contact", "Home")</p>
+</div>
+<div class="panel">
+    <h2>
+        Template500
+    </h2>
+    <!--
+    <p class="social-icons">
+        <img src="/img/google.png" alt="google+" />
+        @Html.Hyperlink("Google+ ↗", "https://profiles.google.com/xxxxxxxxxxxxxx")
+        
+    </p>
+    -->
+    <p class="social-icons">
+        <img src="/img/twitter.png" alt="twitter" />
+        @Html.Hyperlink("Twitter ↗", "http://www.twitter.com/Template500")
+    </p>
+    <p class="social-icons">
+        <img src="/img/facebook.png" alt="facebook" />
+        @Html.Hyperlink("Facebook ↗", "http://www.facebook.com/Template500")
+    </p>
+    <p>
+        <address>
+            Our Home,<br />
+            XX The Street,<br />
+            Leeds,<br />
+            LS1 2AB<br />
+        </address>
+        <br />
+        Company No. 01234567<br />
+        VAT No. 123 4567 89<br />
+
+        <a href="/Terms">Terms and Conditions</a><br />
+        <a href="/Privacy">Privacy Policy</a><br />
+        &copy; @DateTime.Now.Year
+    </p>
+</div>
+<div class="clear">
+</div>

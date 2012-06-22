@@ -1,0 +1,31 @@
+﻿@model IList<Template500.ViewModels.BlogEntryViewModel>
+@{
+    Page.Title = "Blog Archives";
+}
+
+<h1>@Page.Title</h1>
+
+<p>@Html.ActionLink("← Back to Blog", "Index")</p>
+
+<div id="blog-body">
+@if (Model.Count > 0)
+{
+    string dategroup = "";
+    foreach (Template500.ViewModels.BlogEntryViewModel blogEntry in Model)
+    {
+        if (dategroup != blogEntry.Date.ToShortDateString())
+        {
+            dategroup = blogEntry.Date.ToShortDateString();
+            <br />
+            <time>@blogEntry.Date.ToShortDateString()</time>
+        }        
+        <article class="archive">
+            <header>
+            <h1>
+                @Html.ActionLink(blogEntry.Title, "Article", new { id = blogEntry.Url })
+            </h1>
+            </header>
+        </article>
+    }
+}
+</div>

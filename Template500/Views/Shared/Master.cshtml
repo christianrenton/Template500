@@ -1,0 +1,99 @@
+﻿@using SquishIt.Framework
+
+<!doctype html>
+<!--[if lt IE 8]><html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js modern" lang="en">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8" />
+    <!-- handshake with google so it goes faster when we get JQuery etc. -->
+    <link rel="dns-prefetch" href="//ajax.googleapis.com">
+    <link rel="dns-prefetch" href="//apis.google.com">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>@Page.Title</title>
+    <meta name="description" content="@Page.Description" />
+    <meta name="author" content="Gregory Pratt, Web Developer" />
+    <meta name="viewport" content="width=device-width">
+
+    @Html.Raw(Bundle.Css()
+                    .Add("~/css/normalize.less")
+                    .Add("~/css/nonsemantic.less")
+                    .Add("~/css/jquery.css")
+                    .Add("~/css/basic.less")
+                    .Add("~/css/480.less")
+                    .Add("~/css/768.less")
+                    .Add("~/css/1024.less")
+                    .Add("~/css/print.less")
+                    .Render("~/css/style_#.min.css"))
+    @RenderSection("HeadContent", false)
+    <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+    <script src="@Url.Content("~/js/libs/modernizr.min.js")"></script>
+</head>
+<body>
+    <!-- Prompt IE 6 users to install a modern browser or Chrome Frame. -->
+    <!--[if lt IE 8]><p class=chromeframe>Your browser has passed its sell by date. <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to truely experience this site.</p><![endif]-->
+    <div id="container">
+        <header id="header">
+            <div id="title">
+                <a href="/"><img alt="Template500" src="/img/logo.png" /></a>
+            </div>
+            <div id="menucontainer">
+                <ul id="menu">
+                    <li>@Html.ActionLink("home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("blog", "Index", "Blog")</li>
+                    <li>@Html.ActionLink("about us", "About", "Home")</li>
+                    <li>@Html.ActionLink("contact", "Contact", "Home")</li>
+                </ul>
+            </div>
+        </header>
+        <div id="page">
+            <div id="main" role="main">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+        <div id="footercontent">
+            @Html.Partial("_Footer")
+        </div>
+    </footer>
+    <div id="modalbg">
+    </div>
+    <!-- JavaScript at the bottom for fast page loading -->
+    <!-- Grab Google CDN's jQuery. Fall back to local if necessary -->
+    <!-- Use the exact versions or caching will not be v.long at all. -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write("<script src='@Url.Content("~/js/libs/jquery.min.js")'>\x3C/script>")</script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+    <script>window.jQuery || document.write("<script src='@Url.Content("~/js/libs/jquery-ui.min.js")'>\x3C/script>")</script>
+    @Html.Raw(Bundle.JavaScript()
+                    .Add("~/js/libs/jquery.validate.min.js")
+                    .Add("~/js/libs/jquery.validate.unobtrusive.min.js")
+                    .Add("~/js/mylibs/jquery.dataTables.js")
+                    .Add("~/js/mylibs/sanitize/sanitize.js")
+                    .Add("~/js/mylibs/sanitize/config.js")
+                    .Add("~/js/jquery-ui.buttons.js")
+                    .Add("~/js/plugins.js")
+                    .Add("~/js/script.js")
+                    .Add("~/js/blog.js")
+                    .Render("~/js/script_#.min.js"))
+    <!-- Page Level script sections -->
+    @RenderSection("ScriptSection", false)
+    <!-- Asynchronous Google Analytics snippet. -->
+    @if (ViewBag.Release)
+    {
+    <script>
+        var _gaq = [['_setAccount', 'UA-30307210-X'], ['_trackPageview']];
+        (function (d, t) {
+            var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g, s)
+        } (document, 'script'));
+    </script>
+    }
+</body>
+</html>

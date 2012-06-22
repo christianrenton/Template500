@@ -1,0 +1,68 @@
+﻿@import url("mixins.less");
+
+/* =============================================================================
+   Styles for viewports 1024px and over go here
+   Author: Gregory Pratt, Web Developer
+   ========================================================================== */
+
+@media only screen and (min-width: 1024px)
+{
+    h1
+    {
+        margin-top: 30px;
+        background: url(/img/logo.png) 100% 165% no-repeat #fff;
+    }
+        
+    #title
+    {
+        margin: 30px 0px 0px 100px;
+    }
+    
+    #menucontainer
+    {
+        left: 695px;
+    }
+
+    #main
+    {
+        max-width: 808px;
+        margin-left: 141px;
+    }
+        
+    #leftcol, #rightcol
+    {
+        width: 390px;
+        margin-top: 40px;
+    }
+    
+    #leftcol
+    {
+        float: left;
+    }
+    
+    #rightcol
+    {
+        float:right;
+    }
+    
+    #leftcol h3, #rightcol h3
+    {
+        background: url(/img/header-bg.png) 114% 45% no-repeat #fff;
+    }
+      
+            
+    /* FOOTER
+    ----------------------------------------------------------*/
+    #footercontent
+    {
+        max-width: 808px;
+        margin-left: 141px;
+    }
+    
+    #footer div.panel
+    {
+        float: left;
+        max-width: 205px;
+        margin-right: 60px;
+    }
+}

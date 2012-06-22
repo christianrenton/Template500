@@ -1,0 +1,68 @@
+﻿@using SquishIt.Framework
+<!doctype html>
+<!--[if lt IE 8]><html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]><html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js modern" lang="en">
+<!--<![endif]-->
+<head>
+    <!-- If JS is disabled redirect to the nojs page -->
+    <script type="text/javascript">
+        document.write("<!-- ");
+    </script>
+    <meta http-equiv="Refresh" content="1;URL=/NoJs.html" />
+    <script type="text/javascript">
+        document.write(" --><script type=\"text/javascript\">");
+    </script>
+
+    <meta charset="utf-8" />
+
+    <!-- handshake with google so it goes faster when we get JQuery etc. -->
+    <link rel="dns-prefetch" href="//ajax.googleapis.com">
+
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+    <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>@Page.Title</title>
+    <meta name="description" content="@Page.Description" />
+    <meta name="author" content="Gregory Pratt, Web Developer" />
+
+    <meta name="viewport" content="width=device-width">
+
+    @Html.Raw(Bundle.Css()
+                    .Add("~/css/normalize.less")
+                    .Add("~/css/nonsemantic.less")
+                    .Add("~/css/jquery.css")
+                    .Add("~/css/basic.less")
+                    .Add("~/css/480.less")
+                    .Add("~/css/768.less")
+                    .Add("~/css/1024.less")
+                    .Add("~/css/print.less")
+                    .Render("~/css/style_#.min.css"))
+    @RenderSection("HeadContent", false)
+
+    <!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+    <script src="@Url.Content("~/js/libs/modernizr.min.js")"></script>
+</head>
+<body>
+    @RenderBody()
+
+    <!-- JavaScript at the bottom for fast page loading -->
+    <!-- Grab Google CDN's jQuery. Fall back to local if necessary -->
+    <!-- Use the exact versions or caching will not be v.long at all. -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write("<script src='@Url.Content("~/js/libs/jquery.min.js")'>\x3C/script>")</script>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js"></script>
+    <script>window.jQuery || document.write("<script src='@Url.Content("~/js/libs/jquery-ui.min.js")'>\x3C/script>")</script>
+
+
+    <!-- Page Level script sections -->
+    @RenderSection("ScriptSection", false)
+
+    <div id="pleasewait">
+    </div>
+</body>
+</html>

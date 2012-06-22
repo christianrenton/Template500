@@ -1,0 +1,19 @@
+﻿@model Template500.ViewModels.ContactViewModel
+           
+@{
+    Page.Title = "Contact Us";
+    Layout = "~/Views/Mail/Master.cshtml";
+}
+
+@section Heading
+{
+    @Page.Title
+}
+
+
+<h2 class="h2">@Model.Subject</h2>
+@if (!string.IsNullOrWhiteSpace(Model.From))
+{
+    <h3 class="h3"><a href="mailto:@Model.From">@Model.From</a></h3>
+}
+@Html.Raw(Model.Message.Replace(System.Environment.NewLine, "<br />"))

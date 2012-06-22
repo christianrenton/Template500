@@ -1,0 +1,50 @@
+﻿@model MembershipUserCollection
+@{
+    Page.Title = "Users";
+}
+
+<h1>@Page.Title</h1>
+<div class="table-container">
+@if (Model.Count > 0)
+{ 
+    <table id="users-table">
+        <thead>
+            <tr>
+                <th>
+                    Username
+                </th>
+                <th>
+                    Email
+                </th>
+                <th>
+                    Joined
+                </th>
+                <th>
+                    Last Login Date
+                </th>
+                <th>
+                    Locked out
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (MembershipUser user in Model)
+            {
+                <tr>
+                <td>@user.UserName</td>
+                <td><a href="mailto:@user.Email">@user.Email</a></td>
+                <td>@user.CreationDate.ToString("MM/dd/yy H:mm:ss")</td>
+                <td>@user.LastLoginDate.ToString("MM/dd/yy H:mm:ss")</td>
+                <td>@user.IsLockedOut</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>
+        <em>There are no users - which is impossible because you must be logged in to see this page.</em>
+    </p>
+}
+</div>

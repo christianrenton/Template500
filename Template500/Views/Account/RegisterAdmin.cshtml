@@ -1,0 +1,48 @@
+﻿@model Template500.ViewModels.RegisterViewModel
+
+@{
+    Page.Title = "Register Admin";
+}
+
+<h1>Create a new ADMIN account</h1>
+
+<p>
+    Passwords are required to be a minimum of @Membership.MinRequiredPasswordLength characters in length.
+</p>
+
+@using (Html.BeginForm()) {
+    
+    @Html.ValidationSummary()
+    
+    <div class="editor-label">
+        @Html.LabelFor(m => m.UserName)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(m => m.UserName)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(m => m.Email)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(m => m.Email)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(m => m.Password)
+    </div>
+    <div class="editor-field">
+        @Html.PasswordFor(m => m.Password)
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(m => m.ConfirmPassword)
+    </div>
+    <div class="editor-field">
+        @Html.PasswordFor(m => m.ConfirmPassword)
+    </div>
+    
+    <div class="formbtns">
+        <input type="submit" value="Register" />
+    </div>
+}

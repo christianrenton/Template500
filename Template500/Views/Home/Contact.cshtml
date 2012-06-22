@@ -1,0 +1,45 @@
+﻿@model Template500.ViewModels.ContactViewModel
+@{
+    Page.Title = "Contact Us";
+    Page.Description = "Hello, Bonjour, Aloha, Kon-nichiwa, Ni hao, Guten Tag";
+}
+
+<h1>@Page.Title</h1>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary("", new { id = "validation-error-summary" })
+
+    <div class="editor-label">
+        @Html.LabelFor(x => x.Subject) (optional)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(x => x.Subject)
+    </div>
+
+        <div class="editor-label">
+        @Html.LabelFor(x => x.Message)
+    </div>
+    <div class="editor-field">
+        @Html.TextAreaFor(x => x.Message)
+    </div>
+    
+    <div class="editor-label">
+        @Html.LabelFor(x => x.From)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(x => x.From, new { placeholder = "your@email.com", type = "email" })
+    </div>
+            
+    <div class="hidden">
+        <div class="editor-label">
+            @Html.LabelFor(x => x.IsNotHuman)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(x => x.IsNotHuman)
+        </div>
+    </div>
+
+    <div class="formbtns">
+        <input type="submit" value="Send your message" />
+    </div>
+}

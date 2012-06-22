@@ -1,0 +1,43 @@
+﻿@import url("http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,700italic,400,600,700");
+
+body
+{
+    background: #333;
+    color: #fff;
+    text-shadow: 0px 2px 0px #111;
+    -webkit-text-shadow: 0px 2px 0px #111;
+    -moz-text-shadow: 0px 2px 0px #111;
+    -ms-text-shadow: 0px 2px 0px #111;
+    -o-text-shadow: 0px 2px 0px #111;
+}
+h1, div
+{
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: normal;
+    font-size: 16px;
+}
+h1
+{
+    font-size: 45px;
+    font-weight: 600;
+}
+
+ul
+{
+    width: 200px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a
+{
+    color: #fff;
+}
+
+a:hover
+{
+    text-decoration:none;
+}

@@ -1,0 +1,38 @@
+﻿@model Template500.ViewModels.SiteSettingsViewModel
+@{
+    Page.Title = "Dashboard";
+}
+
+<h1>@Page.Title</h1>
+
+<div>
+<p>
+    @Html.ActionLink("List Users", "ListUsers" , "Account")
+</p>
+<p>
+    @Html.ActionLink("Logs", "Index" , "Logs")
+</p>
+<p>
+    @Html.ActionLink("ELMAH", "Index" , "Elmah")
+</p>
+@if (Model.AllowAdminRegistration)
+{
+    <p>
+        @Html.ActionLink("Register New Administrator", "RegisterAdmin", "Account")
+    </p>
+}
+
+<br />
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary("", new { id = "validation-error-summary" })
+
+    <p>@Html.CheckBoxFor(x => x.DisplayBlog) @Html.LabelFor(x => x.DisplayBlog)</p>
+    <p>@Html.CheckBoxFor(x => x.AllowAdminRegistration) @Html.LabelFor(x => x.AllowAdminRegistration)</p>
+    <p>@Html.CheckBoxFor(x => x.AllowPublicRegistration) @Html.LabelFor(x => x.AllowPublicRegistration)</p>
+    
+    <div class="formbtns">
+        <input type="submit" value="Save" />
+    </div>
+}
+</div>

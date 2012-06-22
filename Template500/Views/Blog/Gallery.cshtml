@@ -1,0 +1,45 @@
+﻿@model FileInfo[]
+@{
+    Layout = "~/Views/Shared/BlankMaster.cshtml";
+}
+<form action="" method="post" enctype="multipart/form-data">
+<div id="blog-gallery-container">
+    <div id="blog-gallery-upload">
+        <div id="fileupload">
+            <input type="file" name="file" id="file" />
+            <div id="customfileupload">
+                Select file (< 1Mb)
+            </div>
+        </div>
+        <div id="submitfile">
+            <input type="submit" value="Add to Gallery" />
+        </div>
+    </div>
+    <div id="blog-gallery">
+    @{
+        if (Model.Length > 0)
+        {
+            foreach (FileInfo file in Model)
+            {
+                <div class="blog-gallerythumb">
+                    <img src="/img/BlogGallery/@file.Name" alt="@file.Name" />
+                    <div class="blog-gallerythumb-options">
+                        <a href="/Blog/DeleteImage/@file.Name" class="blog-gallery-action">&times;</a>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p style="margin-top: 150px;">- Gallery empty -</p> 
+        }
+    }
+    </div>
+</div>
+</form>
+
+@section ScriptSection {
+    @Html.Raw(SquishIt.Framework.Bundle.JavaScript()
+                                       .Add("~/js/gallery.js")
+                                       .Render("~/js/script_gallery_#.min.js"))
+}

@@ -1,0 +1,35 @@
+﻿/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* INFO */
+  Web Developer: Gregory Pratt (to begin with but its all Open Source y'all).
+  Site: Template500.
+  Location: The Internet.
+
+
+/* THANKS TO */
+  Paul Irish's Mothereffin MVC Template     -   the basis for this.
+  James Gregory                             -   for Fluent NHibernate (which is boomtastic).
+  Justin Etheredge                          -   for SquishIt.
+  The JQuery Team                           -   well, for JQuery.
+  Scott Anderson                            -   For the ActionMailer.NET port.
+  Chris Coyier's CSS-Tricks.com             -   for invaluable tips and info.
+
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Modernizr, jQuery, Fluent NHibernate, SquishIt, ActionMailer.Net
+  Software: ASP.NET MVC, SQL
+
+
+  _____                    _       _       ____   ___   ___  
+ |_   _|__ _ __ ___  _ __ | | __ _| |_ ___| ___| / _ \ / _ \ 
+   | |/ _ \ '_ ` _ \| '_ \| |/ _` | __/ _ \___ \| | | | | | |
+   | |  __/ | | | | | |_) | | (_| | ||  __/___) | |_| | |_| |
+   |_|\___|_| |_| |_| .__/|_|\__,_|\__\___|____/ \___/ \___/ 
+                    |_|                                      
+
+
+Create your own ascii art.
+http://patorjk.com/software/taag/

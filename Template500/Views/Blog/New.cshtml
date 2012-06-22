@@ -1,0 +1,70 @@
+﻿@model Template500.ViewModels.BlogEntryViewModel
+@{
+    Page.Title = "New Blog Entry";
+}
+
+<h1>@Page.Title</h1>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary("", new { id = "validation-error-summary" })
+
+    <div class="editor-label">
+        @Html.LabelFor(x => x.Title)
+    </div>
+    <div class="editor-field">
+        @Html.TextBoxFor(x => x.Title)
+    </div>
+    
+    <div class="editor-label">
+        @Html.LabelFor(x => x.Introduction)
+    </div>
+    <div class="editor-field">
+        <div id="wysiwyg-controls-intro" class="wysiwyg-controls">
+            <input type="button" value="B" command="bold" title="Bold">
+            <input type="button" value="I" command="italic" title="Italic">
+            <input type="button" value="U" command="underline" title="Underline">
+            <input type="button" value="S" command="strikethrough" class="strike" title="Strikethrough">
+            <input type="button" value="a" command="createLink" class="underlined" title="Link" cmdvalue="promptUser" prompttext="URL of link? (e.g. http://www.google.com)">
+            <input type="button" value="⊢" command="justifyleft" title="Align Text Left">
+            <input type="button" value="⊥" command="justifycenter" title="Center">
+            <input type="button" value="⊣" command="justifyright" title="Align Text Right">
+            <input type="button" value="●" command="insertunorderedlist" title="Bullets">
+            <input type="button" value="1)" command="insertorderedlist" title="Numbering">
+        </div>
+        <div id="blogintro" contenteditable="true"></div>
+    </div>
+
+    <div class="editor-label">
+        @Html.LabelFor(x => x.Body)
+    </div>
+    <div class="editor-field">
+        <div id="wysiwyg-controls-body" class="wysiwyg-controls">
+            <input type="button" value="B" command="bold" title="Bold">
+            <input type="button" value="I" command="italic" title="Italic">
+            <input type="button" value="U" command="underline" title="Underline">
+            <input type="button" value="S" command="strikethrough" class="strike" title="Strikethrough">
+            <input type="button" value="a" command="createLink" class="underlined" title="Link" cmdvalue="promptUser" prompttext="URL of link? (e.g. http://www.google.com)">
+            <input type="button" value="⊢" command="justifyleft" title="Align Text Left">
+            <input type="button" value="⊥" command="justifycenter" title="Center">
+            <input type="button" value="⊣" command="justifyright" title="Align Text Right">
+            <input type="button" value="●" command="insertunorderedlist" title="Bullets">
+            <input type="button" value="1)" command="insertorderedlist" title="Numbering">
+        </div>
+        <div id="blogbody" contenteditable="true"></div>
+    </div>
+    <div class="editor-label">
+        Gallery
+    </div>
+    <iframe id="blog-gallery-iframe" src="/Blog/Gallery" scrolling="no" marginheight="0" marginwidth="0" frameborder="0">Our Gallery does not support your browser.</iframe>
+
+    <div class="formbtns">
+        <input type="submit" value="Publish" />
+    </div>
+
+    @Html.TextAreaFor(x => x.Introduction, new { style = "position:absolute; visibility:hidden;" })
+    @Html.TextAreaFor(x => x.Body, new { style = "position:absolute; visibility:hidden;" })
+}
+
+<p>
+    @Html.ActionLink("✕ Canel", "Index")
+</p>
