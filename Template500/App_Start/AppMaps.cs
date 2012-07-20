@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using Template500.Domain.Entities;
 using Template500.ViewModels;
 
@@ -10,11 +11,13 @@ namespace Template500.App_Start
 		{
 			// Mappings to Views
 			Mapper.CreateMap<LogEntry, LogEntryViewModel>();
+			Mapper.CreateMap<SiteSettings, SiteSettingsViewModel>();
 			Mapper.CreateMap<BlogEntry, BlogEntryViewModel>();
 
 			// Mappings to Domains
 			Mapper.CreateMap<LogEntryViewModel, LogEntry>();
-			Mapper.CreateMap<BlogEntryViewModel, BlogEntry>();
+			Mapper.CreateMap<SiteSettingsViewModel, SiteSettings>().ForMember(x => x.Id, x => x.UseValue(1));
+			Mapper.CreateMap<BlogEntryViewModel, BlogEntry>().ForMember(x => x.Date, x => x.UseValue(DateTime.Now));
 		}
 	}
 }

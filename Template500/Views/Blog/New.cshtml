@@ -16,7 +16,7 @@
     </div>
     
     <div class="editor-label">
-        @Html.LabelFor(x => x.Introduction)
+        @Html.LabelFor(x => x.Intro)
     </div>
     <div class="editor-field">
         <div id="wysiwyg-controls-intro" class="wysiwyg-controls">
@@ -61,7 +61,7 @@
         <input type="submit" value="Publish" />
     </div>
 
-    @Html.TextAreaFor(x => x.Introduction, new { style = "position:absolute; visibility:hidden;" })
+    @Html.TextAreaFor(x => x.Intro, new { style = "position:absolute; visibility:hidden;" })
     @Html.TextAreaFor(x => x.Body, new { style = "position:absolute; visibility:hidden;" })
 }
 

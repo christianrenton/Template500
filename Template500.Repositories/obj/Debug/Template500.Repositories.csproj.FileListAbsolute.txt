@@ -1,0 +1,15 @@
+C:\Users\gregoryp\Dropbox\Sites\Template500\Template500.Repositories\bin\Debug\Template500.Repositories.dll
+C:\Users\gregoryp\Dropbox\Sites\Template500\Template500.Repositories\bin\Debug\Template500.Repositories.pdb
+C:\Users\gregoryp\Dropbox\Sites\Template500\Template500.Repositories\bin\Debug\AutoMapper.dll
+C:\Users\gregoryp\Dropbox\Sites\Template500\Template500.Repositories\bin\Debug\FluentNHibernate.dll
+C:\Users\gregoryp\Dropbox\Sites\Template500\Template500.Repositories\bin\Debug\Iesi.Collections.dll
+C:\Users\gregoryp\Dropbox\Sites\Template500\Template500.Repositories\bin\Debug\NHibernate.dll
+C:\Users\gregoryp\Dropbox\Sites\Template500\Template500.Repositories\bin\Debug\Template500.Domain.dll
+C:\Users\gregoryp\Dropbox\Sites\Template500\Template500.Repositories\bin\Debug\Template500.Domain.pdb
+C:\Users\gregoryp\Dropbox\Sites\Template500\Template500.Repositories\bin\Debug\AutoMapper.xml
+C:\Users\gregoryp\Dropbox\Sites\Template500\Template500.Repositories\bin\Debug\FluentNHibernate.pdb
+C:\Users\gregoryp\Dropbox\Sites\Template500\Template500.Repositories\bin\Debug\Iesi.Collections.xml
+C:\Users\gregoryp\Dropbox\Sites\Template500\Template500.Repositories\bin\Debug\NHibernate.xml
+C:\Users\gregoryp\Dropbox\Sites\Template500\Template500.Repositories\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\gregoryp\Dropbox\Sites\Template500\Template500.Repositories\obj\Debug\Template500.Repositories.dll
+C:\Users\gregoryp\Dropbox\Sites\Template500\Template500.Repositories\obj\Debug\Template500.Repositories.pdb

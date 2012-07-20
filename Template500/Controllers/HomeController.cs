@@ -17,13 +17,9 @@ namespace Template500.Controllers
 		public ActionResult Index()
 		{
 			// Set up site settings
-			SiteSettings settings = _settingsService.Get();
+			if (_settingsService.Get() == null)
+				_settingsService.Save(new SiteSettings(false, true, false));
 
-			if (settings == null)
-			{
-				settings = new SiteSettings(false, true, false);
-				settings = _settingsService.Save(settings);
-			}
 			return View();
 		}
 
@@ -31,8 +27,7 @@ namespace Template500.Controllers
 		[Authenticate(Roles = "Admin, Dev")]
 		public ActionResult Dashboard()
 		{
-			SiteSettings siteSettings = _settingsService.Get();
-			SiteSettingsViewModel model = Mapper.Map<SiteSettings, SiteSettingsViewModel>(siteSettings);
+			SiteSettingsViewModel model = Mapper.Map<SiteSettings, SiteSettingsViewModel>(_settingsService.Get());
 			return View(model);
 		}
 
@@ -43,10 +38,10 @@ namespace Template500.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				SiteSettings settings = Mapper.Map<SiteSettingsViewModel, SiteSettings>(model);
-				settings.Id = 1;
-				_settingsService.Save(settings);
+				SiteSettings settings = _settingsService.Save(Mapper.Map<SiteSettingsViewModel, SiteSettings>(model));
+				model = Mapper.Map<SiteSettings, SiteSettingsViewModel>(settings);
 			}
+
 			return View(model);
 		}
 

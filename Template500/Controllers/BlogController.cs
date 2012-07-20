@@ -5,12 +5,12 @@ using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using AutoMapper;
 using Ninject;
 using Template500.Controllers.ActionFilters;
 using Template500.Domain.Entities;
 using Template500.Services.Interfaces;
 using Template500.ViewModels;
-using AutoMapper;
 
 namespace Template500.Controllers
 {
@@ -85,14 +85,13 @@ namespace Template500.Controllers
 		[Authenticate(Roles = "Dev, Admin")]
 		public ActionResult New(BlogEntryViewModel model)
 		{
-			string newId = "";
 			if (ModelState.IsValid)
 			{
-				model.Title = model.Title.Replace(" ", "-");
-				model.Title = Regex.Replace(model.Title, @"[^\w\-]", "");
-				model.Title = Regex.Replace(model.Title, @"-{2,}", "-");
-				newId = model.Title;
-				BlogEntry existingBlogEntry = blogService.Get(newId);
+				model.Url = model.Title.Replace(" ", "-");
+				model.Url = Regex.Replace(model.Url, @"[^\w\-]", "");
+				model.Url = Regex.Replace(model.Url, @"-{2,}", "-");
+
+				BlogEntry existingBlogEntry = blogService.Get(model.Url);
 
 				if (existingBlogEntry == null)
 				{
@@ -106,7 +105,7 @@ namespace Template500.Controllers
 					return View(model);
 				}
 			}
-			return RedirectToAction("Article", new { id = newId });
+			return RedirectToAction("Article", new { id = model.Url });
 		}
 
 		[Authenticate(Roles = "Dev, Admin")]
@@ -152,7 +151,7 @@ namespace Template500.Controllers
 		public ActionResult Delete(string id)
 		{
 			blogService.Delete(id);
-			return RedirectToAction("Article", new { id = id });
+			return RedirectToAction("Index");
 		}
 
 		[Authenticate(Roles = "Dev, Admin")]
@@ -170,8 +169,8 @@ namespace Template500.Controllers
 		{
 			if (file != null)
 			{
-				if (file != null && 
-					file.ContentLength > 0 && file.ContentLength < 1000000 && 
+				if (file != null &&
+					file.ContentLength > 0 && file.ContentLength < 1000000 &&
 					file.ContentType.StartsWith("image/"))
 				{
 					var fileName = Path.GetFileName(file.FileName);

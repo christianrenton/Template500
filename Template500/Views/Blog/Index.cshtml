@@ -27,13 +27,13 @@
                 <time pubdate="pubdate">@blogEntry.Date.ToShortDateString()</time>
                 </header>
                 <p>
-                    @if (string.IsNullOrWhiteSpace(blogEntry.Introduction))
+                    @if (string.IsNullOrWhiteSpace(blogEntry.Intro))
                     { 
                         @Html.Raw(HttpUtility.HtmlDecode(blogEntry.Body))
                     }
                     else
                     { 
-                        @Html.Raw(HttpUtility.HtmlDecode(blogEntry.Introduction))
+                        @Html.Raw(HttpUtility.HtmlDecode(blogEntry.Intro))
                     }
                 </p>
                 @if (User.IsInRole("Admin") || User.IsInRole("Dev"))

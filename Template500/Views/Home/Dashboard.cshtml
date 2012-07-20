@@ -15,7 +15,7 @@
 <p>
     @Html.ActionLink("ELMAH", "Index" , "Elmah")
 </p>
-@if (Model.AllowAdminRegistration)
+@if (Model.RegisterAdmin)
 {
     <p>
         @Html.ActionLink("Register New Administrator", "RegisterAdmin", "Account")
@@ -27,9 +27,9 @@
 {
     @Html.ValidationSummary("", new { id = "validation-error-summary" })
 
-    <p>@Html.CheckBoxFor(x => x.DisplayBlog) @Html.LabelFor(x => x.DisplayBlog)</p>
-    <p>@Html.CheckBoxFor(x => x.AllowAdminRegistration) @Html.LabelFor(x => x.AllowAdminRegistration)</p>
-    <p>@Html.CheckBoxFor(x => x.AllowPublicRegistration) @Html.LabelFor(x => x.AllowPublicRegistration)</p>
+    <p>@Html.CheckBoxFor(x => x.Blog) @Html.LabelFor(x => x.Blog)</p>
+    <p>@Html.CheckBoxFor(x => x.Register) @Html.LabelFor(x => x.Register)</p>
+    <p>@Html.CheckBoxFor(x => x.RegisterAdmin) @Html.LabelFor(x => x.RegisterAdmin)</p>
     
     <div class="formbtns">
         <input type="submit" value="Save" />

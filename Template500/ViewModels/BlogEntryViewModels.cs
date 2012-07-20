@@ -13,7 +13,7 @@ namespace Template500.ViewModels
 		public string Title { get; set; }
 
 		[AllowHtml]
-		public string Introduction { get; set; }
+		public string Intro { get; set; }
 
 		[AllowHtml]
 		[Required(ErrorMessage="Entry something for your blog")]
